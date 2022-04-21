@@ -1,25 +1,28 @@
+
 package org.example;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main {
+
     public static void main(String[] args) {
-        String str1 = "The length of last word";
-        System.out.println("Original String: " + str1);
-        System.out.println("Length of the last word of the above string: " + length_Of_last_word(str1));
+
+        int numOfThes = 0;
+        System.out.println("Enter a sentence: ");
+        var scanner = new Scanner(System.in);
+        var inString = scanner.nextLine();
+        var st = new StringTokenizer(inString);
+        while (st.hasMoreTokens()) {
+            if (st.nextToken().equalsIgnoreCase("the")) {
+                numOfThes++;
+            }
+        }
+        System.out.println("Number of THEs: " + numOfThes);
     }
 
-    public static int length_Of_last_word(String str1) {
-        int length_word = 0;
-        String[] words = str1.split(" ");
-        if (words.length > 0) {
-            length_word = words[words.length - 1].length();
-        } else {
-            length_word = 0;
-        }
-        return length_word;
-    }
 }
+
 
 
 
